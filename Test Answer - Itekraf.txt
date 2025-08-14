@@ -1,0 +1,20 @@
+1. Vuex membantu bagaimana?
+Vuex menyimpan data global seperti user dan status login (isAuth), sehingga semua komponen bisa akses data yang sama tanpa perlu passing props. Login dan logout juga lebih gampang di-handle di satu tempat.
+
+2. Cara mencegah akses Dashboard tanpa login
+Pakai router guard: sebelum masuk ke /dashboard, dicek dulu store.getters['auth/isLoggedIn']. Kalau belum login, otomatis diarahkan ke halaman login.
+
+3. Komponen reusable apa saja dan kenapa
+- Input / FormGroup: bisa dipakai di login, register, atau form lain.
+- Button: style konsisten untuk semua tombol.
+- DashboardLayout: bikin tampilan dashboard konsisten di semua halaman.
+Tujuannya: hemat kode, gampang maintain, dan UI konsisten.
+
+4. Lifecycle hook yang dipakai
+Tidak ada, karena menggunakan <script setup> semua logika langsung di-handle di script dan reactive state.
+
+5. Langkah build untuk production
+- Jalankan npm run build untuk menghasilkan folder dist yang sudah dioptimasi.
+- Upload folder dist ke hosting atau server.
+- Pastikan routing SPA berjalan lancar (fallback ke index.html jika perlu).
+- Cek kembali semua fitur: login, logout, dashboard, middleware, dan state persistence.
